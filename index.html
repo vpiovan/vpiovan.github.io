@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<style>
+#text {
+font-style: italic;
+font-weight: bold;
+font-size: 120px;
+position : absolute;
+top: 40%; 
+Left : 50%;
+}
+</style>
+<script type="text/javascript">
+var number = 36;
+
+    function changeColor() {
+number = number - 1;
+// alert(number);
+var color = 'blue';
+var random =  Math.random();
+var int = 1 + Math.floor(4 * random);
+
+ if (int == 1) {
+ color = "yellow";
+ }
+if (int == 2) {
+ color = "blue";
+ }
+if (int == 3) {
+ color = "Red";
+ }
+if (int == 4) {
+ color = "white";
+ }
+
+if ( number > 0 ) {
+      document.body.style.background = color;
+ setTimeout(changeColor,5000); /* rappel après 5 secondes = 5000 millisecondes */
+   }
+else {
+      document.getElementById("text").innerHTML = "Fini";
+   }
+
+  }
+function start() {
+
+setTimeout(pause,2000);
+
+// changeColor()
+}
+function pause() {
+var doctext = document.getElementById("text");
+var value = doctext.innerHTML;
+value = value - 1;
+doctext.innerHTML = value;
+if (value == 0) {
+doctext.innerHTML = '';
+ changeColor()	
+ }
+else {
+setTimeout(pause,2000);
+}
+}
+    </script>
+<body style="background-color:aquamarine;" onload="start()">
+<div id="text">3</div>
+</body>
+</html>
